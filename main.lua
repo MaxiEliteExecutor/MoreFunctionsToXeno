@@ -16,25 +16,28 @@ old_getname = hookfunction(getexecutorname, function()
     return "ARC"
 end)
 
--- Hook the 'request' function to return a fake response
-
 local HttpService = game:GetService("HttpService")
 
-hookfunction(request, function(args)
-    if typeof(args) == "table" and args.Url == "https://httpbin.org/user-agent" then
+-- detect real request function
+local realRequest = request or http_request or syn and syn.request or fluxus and fluxus.request
+
+-- store original for fallback
+getgenv().originalRequest = realRequest
+
+-- hook the function
+hookfunction(realRequest, function(options)
+    if typeof(options) == "table" and options.Url == "https://httpbin.org/user-agent" then
         return {
             StatusCode = 200,
             Body = HttpService:JSONEncode({
-                ["user-agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; ExploitClient)"
+                ["user-agent"] = "ExploitClient/7.77"
             })
         }
     end
 
-    -- fallback to original request if different URL (optional)
-    return getgenv().originalRequest and getgenv().originalRequest(args)
+    -- fallback to original if needed
+    return getgenv().originalRequest(options)
 end)
--- Optional: save original request if needed later
-getgenv().originalRequest = request
 
 
 function OwlHub()
