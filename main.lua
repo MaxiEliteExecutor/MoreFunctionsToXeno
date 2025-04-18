@@ -22,5 +22,5 @@ end)
 
 local old_getname
 old_getname = hookfunction(getexecutorname, function()
-    return "ARC" -- Fake executor name
+    return "ARC"
 end)
