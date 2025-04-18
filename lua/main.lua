@@ -16,23 +16,6 @@ old_getname = hookfunction(getexecutorname, function()
     return "ARC"
 end)
 
-local HttpService = game:GetService("HttpService")
-
--- hook the function
-hookfunction(request, function(options)
-    if typeof(options) == "table" and options.Url == "https://httpbin.org/user-agent" then
-        return {
-            StatusCode = 200,
-            Body = HttpService:JSONEncode({
-                ["user-agent"] = "ARCAPI/1.0.0"
-            })
-        }
-    end
-
-    -- fallback to original if needed
-end)
-
-
 function OwlHub()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt"))();
 end
