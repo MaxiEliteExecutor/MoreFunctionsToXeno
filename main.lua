@@ -3,7 +3,9 @@ function infyeild()
 end
 
 function GetAPIDetails()
-    return "ARC Xeno API " .. "V1.0 Spoofer" 
+    return "ARC Xeno API V1.0 Spoofer" 
 end
+
+
 
 
