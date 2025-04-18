@@ -16,7 +16,7 @@ old_getname = hookfunction(getexecutorname, function()
     return "ARC"
 end)
 
--[[local function ARCGUILib()
+--[[local function ARCGUILib()
     local ARCGUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/MaxiEliteExecutor/ARChub/refs/heads/main/ARChubUI.lua", true))()
     
     local window = ARCGUI:CreateWindow({
