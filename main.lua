@@ -18,19 +18,13 @@ end)
 
 local HttpService = game:GetService("HttpService")
 
--- detect real request function
-local realRequest = request or http_request or syn and syn.request or fluxus and fluxus.request
-
--- store original for fallback
-getgenv().originalRequest = realRequest
-
 -- hook the function
-hookfunction(realRequest, function(options)
+hookfunction(request, function(options)
     if typeof(options) == "table" and options.Url == "https://httpbin.org/user-agent" then
         return {
             StatusCode = 200,
             Body = HttpService:JSONEncode({
-                ["user-agent"] = "ExploitClient/7.77"
+                ["user-agent"] = "ARCAPI/1.0.0"
             })
         }
     end
