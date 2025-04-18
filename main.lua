@@ -23,7 +23,7 @@ end
 
 --[[function Vulnerability()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/aihkw/exe-test/refs/heads/main/executor_vuln_test.lua"))();
-end
+end]]
 --[[local function ARCGUILib()
     local ARCGUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/MaxiEliteExecutor/ARChub/refs/heads/main/ARChubUI.lua", true))()
     
