@@ -30,7 +30,6 @@ hookfunction(request, function(options)
     end
 
     -- fallback to original if needed
-    return getgenv().originalRequest(options)
 end)
 
 
