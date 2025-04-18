@@ -2,14 +2,6 @@ function infiniteyield()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
 end
 
-function GetSpooferName()
-    return "ARC Spoofer XENO  " 
-end
-
-function GetSpooferVersion()
-    return "V1.0"
-end
-
 function uncTest()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/unified-naming-convention/NamingStandard/main/UNCCheckEnv.lua", true))()
 end
@@ -24,3 +16,13 @@ old_getname = hookfunction(getexecutorname, function()
     return "ARC"
 end)
 
+-[[local function ARCGUILib()
+    local ARCGUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/MaxiEliteExecutor/ARChub/refs/heads/main/ARChubUI.lua", true))()
+    
+    local window = ARCGUI:CreateWindow({
+        Title = "My UI",
+        Size = UDim2.new(0, 650, 0, 500),
+        Keybind = Enum.KeyCode.RightShift,
+        Transparency = 0.1
+    })
+end]]
