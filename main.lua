@@ -16,11 +16,6 @@ old_getname = hookfunction(getexecutorname, function()
     return "ARC"
 end)
 
--- Hook the 'request' function to return a fake response
-
-
--- Optional: save original request if needed later
-getgenv().originalRequest = request
 
 function OwlHub()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt"))();
