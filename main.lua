@@ -16,7 +16,6 @@ end
 
 local old_identify
 old_identify = hookfunction(identifyexecutor, function()
-    print("identifyexecutor() called!")
     return "ARC", "1.0.0"
 end)
 
@@ -24,3 +23,4 @@ local old_getname
 old_getname = hookfunction(getexecutorname, function()
     return "ARC"
 end)
+
