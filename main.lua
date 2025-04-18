@@ -16,6 +16,10 @@ old_getname = hookfunction(getexecutorname, function()
     return "ARC"
 end)
 
+function OwlHub()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt"))();
+end
+
 --[[local function ARCGUILib()
     local ARCGUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/MaxiEliteExecutor/ARChub/refs/heads/main/ARChubUI.lua", true))()
     
