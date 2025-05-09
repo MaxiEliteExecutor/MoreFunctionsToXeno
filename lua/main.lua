@@ -8,18 +8,23 @@ end
 
 local old_identify
 old_identify = hookfunction(identifyexecutor, function()
-    return "ARC", "1.0.0"
+    return executorInfo.NAME, executorInfo.VERSION
 end)
 
 local old_getname
 old_getname = hookfunction(getexecutorname, function()
-    return "ARC"
+    return executorInfo.NAME
+end)
+
+local old_useragent
+old_useragent = hookfunction(request, function(options)
+    if not options or not options.Url then return {StatusCode = 400, Body = ""} end
+    return {StatusCode = 200, Body = '{"success":true, "user-agent":"'..executorInfo.USERAGENT..'"}', Headers = {}}
 end)
 
 function OwlHub()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt"))();
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt"))()
 end
-
 --[[function Vulnerability()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/aihkw/exe-test/refs/heads/main/executor_vuln_test.lua"))();
 end]]
